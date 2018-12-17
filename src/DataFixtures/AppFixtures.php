@@ -16,7 +16,7 @@ class AppFixtures extends Fixture
     /** @var  ObjectManager $manager */
     private $manager;
 
-    private $tokens = [];
+    // private $tokens = [];
     /**
      * @param ObjectManager $manager
      */
