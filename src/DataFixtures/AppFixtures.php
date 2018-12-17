@@ -16,6 +16,7 @@ class AppFixtures extends Fixture
     /** @var  ObjectManager $manager */
     private $manager;
 
+    private $tokens = [];
     /**
      * @param ObjectManager $manager
      */
@@ -41,6 +42,14 @@ class AppFixtures extends Fixture
     {
         while (true) {
             $token = TokenGenerator::generate();
+            //another solution: we can check it in cache array instead of quering databas every time
+            /*
+            if (isset($this->tokens[$token])) {
+                   continue;
+            }
+            
+            $this->tokens[$token] = $token;
+            */
             $searchedArtist = $this->manager
                 ->getRepository(Artist::class)
                 ->findBy(['token' => $token]);
